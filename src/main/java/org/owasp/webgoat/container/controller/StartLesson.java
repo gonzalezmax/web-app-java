@@ -55,7 +55,26 @@ public class StartLesson {
    *
    * @return a {@link ModelAndView} object.
    */
-  @RequestMapping(
+@RequestMapping(
+    value = {"*.lesson"},
+    produces = "text/html",
+    method = RequestMethod.GET) // Specify that only HTTP GET method is allowed
+public ModelAndView lessonPage(HttpServletRequest request) {
+  var model = new ModelAndView("lesson_content");
+  var path = request.getRequestURL().toString(); // we now got /a/b/c/AccessControlMatrix.lesson
+  var lessonName = path.substring(path.lastIndexOf('/') + 1, path.indexOf(".lesson"));
+
+  course.getLessons().stream()
+      .filter(l -> l.getId().equals(lessonName))
+      .findFirst()
+      .ifPresent(
+          lesson -> {
+            ws.setCurrentLesson(lesson);
+            model.addObject("lesson", lesson);
+          });
+
+  return model;
+}
       path = "startlesson.mvc",
       method = {RequestMethod.GET, RequestMethod.POST})
   public ModelAndView start() {

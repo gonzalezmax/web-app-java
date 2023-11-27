@@ -21,7 +21,19 @@ public class SessionService {
   private final RestartLessonService restartLessonService;
   private final Messages messages;
 
-  @RequestMapping(path = "/service/enable-security.mvc", produces = "application/json")
+import org.springframework.web.bind.annotation.RequestMethod;
+
+// ...
+
+@RequestMapping(path = "/service/enable-security.mvc", method = RequestMethod.POST, produces = "application/json")
+@ResponseBody
+public String applySecurity() {
+  webSession.toggleSecurity();
+  restartLessonService.restartLesson();
+
+  var msg = webSession.isSecurityEnabled() ? "security.enabled" : "security.disabled";
+  return messages.getMessage(msg);
+}
   @ResponseBody
   public String applySecurity() {
     webSession.toggleSecurity();

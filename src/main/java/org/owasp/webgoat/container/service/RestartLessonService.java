@@ -49,7 +49,21 @@ public class RestartLessonService {
   private final Function<String, Flyway> flywayLessons;
   private final List<Initializeable> lessonsToInitialize;
 
-  @RequestMapping(path = "/service/restartlesson.mvc", produces = "text/text")
+import org.springframework.web.bind.annotation.RequestMethod; // Import RequestMethod
+
+@Controller
+@AllArgsConstructor
+@Slf4j
+public class RestartLessonService {
+
+  // ... (other fields and methods)
+
+  @RequestMapping(path = "/service/restartlesson.mvc", method = RequestMethod.POST, produces = "text/text")
+  @ResponseStatus(value = HttpStatus.OK)
+  public void restartLesson() {
+    // ... (method implementation)
+  }
+}
   @ResponseStatus(value = HttpStatus.OK)
   public void restartLesson() {
     Lesson al = webSession.getCurrentLesson();

@@ -61,7 +61,48 @@ public class LabelDebugService {
    *
    * @return a {@link org.springframework.http.ResponseEntity} object.
    */
-  @RequestMapping(path = URL_DEBUG_LABELS_MVC, produces = MediaType.APPLICATION_JSON_VALUE)
+import org.springframework.web.bind.annotation.RequestMethod;
+
+// ...
+
+@Controller
+@Slf4j
+@AllArgsConstructor
+public class LabelDebugService {
+
+  // ... (other parts of the class remain unchanged)
+
+  /**
+   * Checks if debugging of labels is enabled or disabled
+   *
+   * @return a {@link org.springframework.http.ResponseEntity} object.
+   */
+  @RequestMapping(path = URL_DEBUG_LABELS_MVC, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+  public @ResponseBody ResponseEntity<Map<String, Object>> checkDebuggingStatus() {
+    // ... (method implementation remains unchanged)
+  }
+
+  /**
+   * Sets the enabled flag on the label debugger to the given parameter
+   *
+   * @param enabled {@link org.owasp.webgoat.container.session.LabelDebugger} object
+   * @return a {@link org.springframework.http.ResponseEntity} object.
+   */
+@RequestMapping(value = "/path/to/resource", method = RequestMethod.POST)
+public ResponseEntity<?> handleFormSubmission(@RequestBody YourDataObject data) {
+    // Your code to handle the POST request
+}
+      path = URL_DEBUG_LABELS_MVC,
+      method = RequestMethod.POST,
+      produces = MediaType.APPLICATION_JSON_VALUE,
+      params = KEY_ENABLED)
+  public @ResponseBody ResponseEntity<Map<String, Object>> setDebuggingStatus(
+      @RequestParam("enabled") Boolean enabled) {
+    // ... (method implementation remains unchanged)
+  }
+
+  // ... (rest of the class remains unchanged)
+}
   public @ResponseBody ResponseEntity<Map<String, Object>> checkDebuggingStatus() {
     log.debug("Checking label debugging, it is {}", labelDebugger.isEnabled());
     Map<String, Object> result = createResponse(labelDebugger.isEnabled());

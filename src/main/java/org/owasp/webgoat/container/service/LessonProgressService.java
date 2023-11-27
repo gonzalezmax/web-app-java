@@ -29,7 +29,7 @@ public class LessonProgressService {
    *
    * @return list of assignments
    */
-  @RequestMapping(value = "/service/lessonoverview.mvc", produces = "application/json")
+@RequestMapping(value = "/service/lessonoverview.mvc", method = RequestMethod.GET, produces = "application/json")
   @ResponseBody
   public List<LessonOverview> lessonOverview() {
     var userTracker = userTrackerRepository.findByUser(webSession.getUserName());
