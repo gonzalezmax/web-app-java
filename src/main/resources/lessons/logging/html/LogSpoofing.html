@@ -18,6 +18,7 @@
               method="POST"
               action="LogSpoofing/log-spoofing">
 
+            <input type="hidden" name="csrf_token" value="UNIQUE_CSRF_TOKEN"/>
             <input type="text" value="" name="username" placeholder="username"/>
             <input type="password" value="" name="password" placeholder="password"/>
             <input type="submit" value="Submit"/>
@@ -40,6 +41,7 @@
               method="POST"
               action="LogSpoofing/log-bleeding">
 
+            <input type="hidden" name="csrf_token" value="UNIQUE_CSRF_TOKEN"/>
             <input type="text" value="" name="username" placeholder="username"/>
             <input type="password" value="" name="password" placeholder="password"/>
             <input type="submit" value="Submit"/>
@@ -53,3 +55,4 @@
     <div class="adoc-content" th:replace="~{doc:lessons/logging/documentation/more_logging.adoc}"></div>
 </div>
 </html>
+

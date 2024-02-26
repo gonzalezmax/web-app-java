@@ -190,6 +190,7 @@
 
             <br/>
             <form class="attack-form" method="POST" name="form" action="PathTraversal/random">
+                {% csrf_token %}
                 <div class="assignment-success"><i class="fa fa-2 fa-check hidden" aria-hidden="true"></i></div>
                 <div class="form-group">
                     <div class="input-group">
@@ -203,6 +204,7 @@
                 </div>
 
             </form>
+
 
             <div class="attack-feedback"></div>
             <div class="attack-output"></div>
