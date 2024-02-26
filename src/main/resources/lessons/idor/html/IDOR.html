@@ -23,6 +23,7 @@
         <form class="attack-form" accept-charset="UNKNOWN"
               method="POST" name="form"
               action="IDOR/login">
+            {% csrf_token %}
             <table>
                 <tr>
                     <td>user/pass</td>
@@ -35,6 +36,7 @@
                 </tr>
             </table>
         </form>
+
         <!-- do not remove the two following div's, this is where your feedback/output will land -->
         <div class="attack-feedback"></div>
         <div class="attack-output"></div>
@@ -81,9 +83,11 @@
         <form class="attack-form"
               method="POST" name="diff-form"
               action="IDOR/diff-attributes">
+            {% csrf_token %}
             <input name="attributes" type="text" />
             <input name="Submit Diffs" value="Submit Diffs" type="submit" />
         </form>
+
 
         <!-- do not remove the two following div's, this is where your feedback/output will land -->
         <div class="attack-feedback"></div>
@@ -109,6 +113,8 @@
               method="POST" name="form"
               action="IDOR/profile/alt-path">
             <div class="adoc-content" th:replace="~{doc:lessons/idor/documentation/IDOR_inputAltPath.adoc}"></div>
+            <!-- CSRF token should be securely generated and validated server-side -->
+            <input type="hidden" name="csrf_token" value="SECURELY_GENERATED_CSRF_TOKEN"/>
             <input name="url" value="WebGoat/" type="text"/>
             <input name="submit" value="Submit" type="SUBMIT"/>
         </form>

@@ -18,6 +18,7 @@
     <div class="attack-container">
         <img th:src="@{/images/wolf-enabled.png}" class="webwolf-enabled"/>
         <form id="decode" class="attack-form" method="POST" name="form" action="JWT/decode">
+            {% csrf_token %}
             <div class="assignment-success"><i class="fa fa-2 fa-check hidden" aria-hidden="true"></i></div>
             <br>
             <div class="row">
@@ -126,9 +127,10 @@
                   method="POST" name="form"
                   action="JWT/quiz"
                   role="form">
+                {% csrf_token %}
                 <div id="q_container"></div>
                 <br/>
-                <input name="Quiz_solutions" value="Submit answers" type="SUBMIT"/>
+                <input name="Quiz_solutions" value="Submit answers" type="submit"/>
             </form>
         </div>
         <div class="attack-feedback"></div>
@@ -156,6 +158,7 @@
     <div class="attack-container">
         <div class="assignment-success"><i class="fa fa-2 fa-check hidden" aria-hidden="true"></i></div>
         <form class="attack-form" method="POST" name="form" action="JWT/secret">
+            {% csrf_token %}
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-flag-checkered" aria-hidden="true"

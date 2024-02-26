@@ -47,7 +47,8 @@
             <!-- modify the action to point to the intended endpoint and set other attributes as desired -->
             <form class="attack-form" accept-charset="UNKNOWN"
                   method="POST" name="form"
-                  action="lesson-template/sample-attack">
+                  action="lesson-template/sample-attack" th:action="@{/lesson-template/sample-attack}" th:object="${formObject}">
+                <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
                 <table>
                     <tr>
                         <td>two random params</td>
