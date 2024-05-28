@@ -6692,7 +6692,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
 
       if (isEmpty && isElement && canHaveHTML) {
         // Make sure that caret is visible in node by inserting a zero width no breaking space
-        try { node.innerHTML = wysihtml5.INVISIBLE_SPACE; } catch(e) {}
+        try { node.textContent = wysihtml5.INVISIBLE_SPACE; } catch(e) {}
       }
       range.selectNodeContents(node);
       if (isEmpty && isElement) {
