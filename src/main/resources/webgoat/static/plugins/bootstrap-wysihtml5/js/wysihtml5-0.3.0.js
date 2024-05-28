@@ -8053,7 +8053,7 @@ wysihtml5.views.View = Base.extend(
       this.doc                = this.sandbox.getDocument();
       this.element            = this.doc.body;
       this.textarea           = this.parent.textarea;
-      this.element.innerHTML  = this.textarea.getValue(true);
+      this.element.textContent = this.textarea.getValue(true);
       this.enable();
       
       // Make sure our selection handler is ready
