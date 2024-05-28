@@ -6199,7 +6199,7 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
           tempElement   = doc._wysihtml5ScrollIntoViewElement = doc._wysihtml5ScrollIntoViewElement || (function() {
             var element = doc.createElement("span");
             // The element needs content in order to be able to calculate it's position properly
-            element.innerHTML = wysihtml5.INVISIBLE_SPACE;
+            element.textContent = wysihtml5.INVISIBLE_SPACE;
             return element;
           })(),
           offsetTop;
