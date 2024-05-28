@@ -1186,7 +1186,7 @@ rangy.createModule("DomUtil", function(api, module) {
             // "If the node's document is an XML document: Invoke the XML fragment parsing algorithm."
             // "In either case, the algorithm must be invoked with fragment as the input
             // and element as the context element."
-            el.innerHTML = fragmentStr;
+            el.textContent = fragmentStr;
 
             // "If this raises an exception, then abort these steps. Otherwise, let new
             // children be the nodes returned."
