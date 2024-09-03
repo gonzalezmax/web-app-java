@@ -22,6 +22,7 @@
 
 package org.owasp.webgoat.webwolf;
 
+import io.github.pixee.security.Filenames;
 import static org.springframework.http.MediaType.ALL_VALUE;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -79,8 +80,8 @@ public class FileServer {
     String username = authentication.getName();
     var destinationDir = new File(fileLocation, username);
     destinationDir.mkdirs();
-    myFile.transferTo(new File(destinationDir, myFile.getOriginalFilename()));
-    log.debug("File saved to {}", new File(destinationDir, myFile.getOriginalFilename()));
+    myFile.transferTo(new File(destinationDir, Filenames.toSimpleFileName(myFile.getOriginalFilename())));
+    log.debug("File saved to {}", new File(destinationDir, Filenames.toSimpleFileName(myFile.getOriginalFilename())));
 
     return new ModelAndView(
         new RedirectView("files", true),
