@@ -4351,7 +4351,7 @@ wysihtml5.dom.getAsDom = (function() {
     tempElement.style.display = "none";
     context.body.appendChild(tempElement);
     // IE throws an exception when trying to insert <frameset></frameset> via innerHTML
-    try { tempElement.innerHTML = html; } catch(e) {}
+    try { tempElement.textContent = html; } catch(e) {}
     context.body.removeChild(tempElement);
     return tempElement;
   };
