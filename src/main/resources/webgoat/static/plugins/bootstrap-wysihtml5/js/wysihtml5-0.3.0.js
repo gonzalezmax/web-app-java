@@ -1203,7 +1203,7 @@ rangy.createModule("DomUtil", function(api, module) {
             assertNotDetached(this);
             var doc = getRangeDocument(this);
             var el = doc.createElement("body");
-            el.innerHTML = fragmentStr;
+            el.textContent = fragmentStr;
 
             return dom.fragmentFromNodeChildren(el);
         };
