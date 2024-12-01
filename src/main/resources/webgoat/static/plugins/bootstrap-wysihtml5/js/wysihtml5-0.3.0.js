@@ -7959,7 +7959,7 @@ wysihtml5.views.View = Base.extend(
       if (parse) {
         html = this.parent.parse(html);
       }
-      this.element.innerHTML = html;
+      this.element.textContent = html;
     },
 
     show: function() {
