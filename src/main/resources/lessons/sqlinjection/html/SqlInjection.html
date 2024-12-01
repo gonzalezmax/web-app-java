@@ -41,6 +41,7 @@
               method="POST" name="form"
               action="SqlInjection/attack3"
               autocomplete="off">
+            {% csrf_token %}
             <table>
                 <tr>
                     <td><label>SQL query</label></td>
@@ -65,6 +66,7 @@
               method="POST" name="form"
               action="SqlInjection/attack4"
               autocomplete="off">
+            {% csrf_token %}
             <table>
                 <tr>
                     <td><label>SQL query</label></td>
@@ -75,6 +77,7 @@
                 </tr>
             </table>
         </form>
+
         <div class="attack-feedback"></div>
         <div class="attack-output"></div>
     </div>
@@ -89,6 +92,7 @@
               method="POST" name="form"
               action="SqlInjection/attack5"
               autocomplete="off">
+            {% csrf_token %}
             <table>
                 <tr>
                     <td><label>SQL query</label></td>
@@ -189,6 +193,8 @@
         <form class="attack-form" accept-charset="UNKNOWN"
               method="POST" name="form"
               action="SqlInjection/assignment5b">
+            <!-- CSRF token should be generated server-side and included in the form -->
+            <input type="hidden" name="csrf_token" value="GENERATED_CSRF_TOKEN_PLACEHOLDER"/>
             <table>
                 <tr>
                     <td>Login_Count:</td>
@@ -218,6 +224,7 @@
               method="POST" name="form"
               action="SqlInjection/attack8"
               autocomplete="off">
+            {% csrf_token %}
             <table>
                 <tr>
                     <td><label>Employee Name:</label></td>
@@ -232,6 +239,7 @@
                 </tr>
             </table>
         </form>
+
         <div class="attack-feedback"></div>
         <div class="attack-output"></div>
     </div>
@@ -246,6 +254,7 @@
               method="POST" name="form"
               action="SqlInjection/attack9"
               autocomplete="off">
+            {% csrf_token %}
             <table>
                 <tr>
                     <td><label>Employee Name:</label></td>
@@ -275,6 +284,7 @@
               method="POST" name="form"
               action="SqlInjection/attack10"
               autocomplete="off">
+            {% csrf_token %}
             <table>
                 <tr>
                     <td><label>Action contains:</label></td>

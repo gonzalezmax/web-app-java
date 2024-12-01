@@ -54,6 +54,8 @@
         <form class="attack-form" accept-charset="UNKNOWN"
               method="POST" name="form"
               action="access-control/hidden-menu">
+            <!-- CSRF token field -->
+            <input type="hidden" name="csrfToken" value="${_csrf.token}"/>
 
             <p>Hidden item 1 <input name="hiddenMenu1" value="" type="TEXT"/></p>
             <p>Hidden item 2 <input name="hiddenMenu2" value="" type="TEXT"/></p>
@@ -77,6 +79,8 @@
         <form class="attack-form" accept-charset="UNKNOWN"
               method="POST" name="form"
               action="access-control/user-hash">
+            <!-- CSRF token field -->
+            <input type="hidden" name="csrfToken" value="${_csrf.token}"/>
 
             <p>Your Hash: <input name="userHash" value="" type="TEXT"/></p>
             <br/>
@@ -99,6 +103,8 @@
         <form class="attack-form" accept-charset="UNKNOWN"
               method="POST" name="form"
               action="access-control/user-hash-fix">
+            <!-- CSRF token field -->
+            <input type="hidden" name="csrfToken" value="${_csrf.token}"/>
 
             <p>Your Hash: <input name="userHash" value="" type="TEXT"/></p>
             <br/>

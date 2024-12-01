@@ -111,6 +111,7 @@ class SpoofCookieAssignmentTest extends AssignmentEndpointTest {
           + "3.- Valid cookie with not known username sent ")
   void cookieLoginNotSolvedFlow(String cookieValue) throws Exception {
     Cookie cookie = new Cookie(COOKIE_NAME, cookieValue);
+    cookie.setSecure(true); // Set the cookie to be sent only over HTTPS
     mockMvc
         .perform(
             MockMvcRequestBuilders.post(LOGIN_CONTEXT_PATH)

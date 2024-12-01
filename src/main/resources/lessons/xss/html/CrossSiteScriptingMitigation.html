@@ -28,6 +28,7 @@
 				<script th:src="@{/lesson_js/assignment3.js}" type="text/javascript" charset="utf-8"></script>
 			</div>
 			<input type="hidden" name="editor"/>
+			<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
 			<div class="input-group" style="position: absolute; top: 365px;">
 				<button class="btn btn-primary" type="submit">Submit</button>
 			</div>
@@ -48,6 +49,7 @@
 				<script th:src="@{/lesson_js/assignment4.js}" type="text/javascript" charset="utf-8"></script>
 			</div>
 			<input type="hidden" name="editor2"/>
+			<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
 			<div class="input-group" style="position: absolute; top: 365px;">
 				<button class="btn btn-primary" type="submit">Submit</button>
 			</div>

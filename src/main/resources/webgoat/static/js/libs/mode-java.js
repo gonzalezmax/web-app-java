@@ -571,7 +571,7 @@ var BaseFoldMode = require("./fold_mode").FoldMode;
 var FoldMode = exports.FoldMode = function(commentRegex) {
     if (commentRegex) {
         this.foldingStartMarker = new RegExp(
-            this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + commentRegex.start)
+            this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + commentRegex.start.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'))
         );
         this.foldingStopMarker = new RegExp(
             this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + commentRegex.end)

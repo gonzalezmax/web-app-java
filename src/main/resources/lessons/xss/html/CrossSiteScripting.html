@@ -13,6 +13,7 @@
 			<form class="attack-form" accept-charset="UNKNOWN"
 				  method="POST" name="form"
 				  action="CrossSiteScripting/attack1">
+				<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 				<table>
 					<tr>
 						<td><input type="checkbox" name="checkboxAttack1"> The cookies are the same on each tab </td>
@@ -22,6 +23,7 @@
 					</tr>
 				</table>
 			</form>
+
 		</div>
 		<div class="attack-feedback"></div>
 		<div class="attack-output"></div>
@@ -134,9 +136,11 @@
 		<form class="attack-form" accept-charset="UNKNOWN"
 			  method="POST" name="DOMTestRoute"
 			  action="CrossSiteScripting/attack6a">
+			<input type="hidden" name="csrf_token" value="UNIQUE_CSRF_TOKEN"/>
 			<input name="DOMTestRoute" value="" type="TEXT" />
 			<input name="SubmitTestRoute" value="Submit" type="SUBMIT"/>
 		</form>
+
 		<div class="attack-feedback"></div>
 		<div class="attack-output"></div>
 	</div>
@@ -149,9 +153,11 @@
 		<form class="attack-form" accept-charset="UNKNOWN"
 			  method="POST" name="DOMFollowUp"
 			  action="CrossSiteScripting/dom-follow-up">
+			{% csrf_token %}
 			<input name="successMessage" value="" type="TEXT" />
 			<input name="submitMessage" value="Submit" type="SUBMIT"/>
 		</form>
+
 		<div class="attack-feedback"></div>
 		<div class="attack-output"></div>
 	</div>
@@ -169,10 +175,12 @@
 			<form id="quiz-form" class="attack-form" accept-charset="UNKNOWN"
 				  method="POST" name="form"
 				  action="CrossSiteScripting/quiz" role="form">
+				{% csrf_token %}
 				<div id="q_container"></div>
 				<br />
 				<input name="Quiz_solutions" value="Submit answers" type="SUBMIT"/>
 			</form>
+
 		</div>
 		<div class="attack-feedback"></div>
 		<div class="attack-output"></div>

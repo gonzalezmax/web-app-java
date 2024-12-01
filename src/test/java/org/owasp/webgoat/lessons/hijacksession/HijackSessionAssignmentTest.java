@@ -81,6 +81,7 @@ class HijackSessionAssignmentTest extends AssignmentEndpointTest {
     ReflectionTestUtils.setField(assignment, "provider", providerMock);
 
     Cookie cookie = new Cookie(COOKIE_NAME, "value");
+    cookie.setSecure(true); // Set the secure flag to true
 
     ResultActions result =
         mockMvc.perform(
